@@ -1,0 +1,11 @@
+{
+  "name": "local-life-platform",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "start": "npm --prefix voice-conversation start",
+    "check": "npm --prefix voice-conversation run check",
+    "test": "npm --prefix voice-conversation test",
+    "deploy": "npm run check && npm test && npx wrangler pages deploy --branch main"
+  }
+}

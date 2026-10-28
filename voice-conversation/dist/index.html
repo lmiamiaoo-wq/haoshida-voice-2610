@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#f6f7fb">
+  <meta name="description" content="好侍达，有事儿您说话。预约洗猫、选择接送方案与司机接单的语音交互原型。">
+  <title>好侍达 · 语音对话</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='10' fill='%237286ff'/%3E%3Ccircle cx='16' cy='16' r='9' fill='%23dee2fc'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="tokens.css?v=soft-centered-shadow-20261028-1">
+  <link rel="stylesheet" href="style.css?v=raised-controls-20261028-1">
+  <script defer src="flow.js?v=after-speech-choice-20261028-1"></script>
+  <script defer src="app.js?v=borderless-cards-20261028-1"></script>
+</head>
+<body>
+  <main class="phone" id="app" data-phase="idle" data-cards="false">
+    <div class="statusbar" aria-hidden="true"><b>9:41</b><span><img src="icons/cell-signal-full-fill.svg" alt=""><img src="icons/wifi-high-fill.svg" alt=""><img class="battery" src="icons/battery-full-fill.svg" alt=""></span></div>
+    <header class="app-header">
+      <h1>好侍达</h1>
+      <div class="capsule"><button id="more" aria-label="更多选项" aria-haspopup="menu" aria-expanded="false"><img src="icons/dots-three.svg" alt=""></button><i></i><button id="exit" aria-label="结束并重新开始"><img src="icons/record.svg" alt=""></button></div>
+      <div class="more-menu" id="more-menu" role="menu" hidden><button id="restart" role="menuitem"><span>重新开始</span><span aria-hidden="true">↻</span></button><button id="text-input" role="menuitem"><span>文字对话</span><span aria-hidden="true">↗</span></button><button id="history" role="menuitem"><span>对话记录</span><span aria-hidden="true">↗</span></button><button id="cancel-match" role="menuitem" hidden><span>取消订单</span><span aria-hidden="true">×</span></button></div>
+    </header>
+
+    <section class="voice-stage" id="voice-stage" aria-label="语音助手">
+      <div class="welcome-copy"><h2>有事儿您说话</h2></div>
+      <button class="orb-button" id="orb" aria-label="开始语音对话"><span class="orb-halo"></span><span class="orb-core"><span class="orb-cloud cloud-one"></span><span class="orb-cloud cloud-two"></span><span class="orb-edge-color edge-one"></span><span class="orb-edge-color edge-two"></span></span><span class="orb-shadow"></span></button>
+      <button class="orb-caption" id="voice-presence" aria-label="模拟打断对话" hidden><span class="presence-main"><span class="waveform" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></span><span id="voice-status" role="status"></span></span><span class="interrupt-hint sr-only" id="interrupt-hint" hidden>点击语音球打断</span></button>
+      <p class="matching-status" id="matching-title" role="status" aria-hidden="true">正在寻找司机</p>
+    </section>
+
+    <section class="conversation" id="conversation" aria-label="对话内容" hidden><div class="conversation-inner" id="messages" aria-live="polite" aria-relevant="additions"></div></section>
+    <section class="action-panel" id="action-panel" aria-label="服务与订单" hidden></section>
+
+    <footer class="voice-footer">
+      <div class="voice-controls">
+        <button class="secondary-control" id="sound" aria-label="关闭语音播报" title="关闭语音播报" aria-pressed="true" aria-hidden="true" inert disabled><span class="control-circle"><img src="icons/speaker-high-fill.svg" alt=""></span></button>
+        <button class="primary-control" id="primary" aria-label="开始对话" title="开始对话"><span class="primary-icon"><img src="icons/phone-fill.svg" alt=""></span><span id="primary-label">开始对话</span></button>
+        <button class="secondary-control" id="hangup" aria-label="结束对话" title="挂断" aria-hidden="true" inert disabled><span class="control-circle"><img src="icons/phone-hangup-fill.svg" alt=""></span></button>
+      </div>
+      <div class="home-indicator" aria-hidden="true"></div>
+    </footer>
+    <div class="toast" id="toast" role="status" hidden></div>
+    <div class="modal-backdrop" id="modal-backdrop" hidden><section class="bottom-sheet" id="sheet" role="dialog" aria-modal="true" aria-labelledby="sheet-title" tabindex="-1"></section></div>
+  </main>
+</body>
+</html>

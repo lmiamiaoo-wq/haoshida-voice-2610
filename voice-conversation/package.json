@@ -1,0 +1,11 @@
+{
+  "name": "local-life-voice",
+  "version": "1.0.0",
+  "private": true,
+  "description": "本地生活互助平台语音对话交互原型",
+  "scripts": {
+    "start": "python3 -m http.server 5186 --bind 127.0.0.1 --directory dist",
+    "check": "node --check dist/app.js && node --check dist/flow.js",
+    "test": "node --test tests/flow.test.cjs"
+  }
+}

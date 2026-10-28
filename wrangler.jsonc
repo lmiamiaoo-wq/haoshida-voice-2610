@@ -1,0 +1,5 @@
+{
+  "name": "haoshida-voice",
+  "pages_build_output_dir": "./voice-conversation/dist",
+  "compatibility_date": "2026-10-28"
+}
